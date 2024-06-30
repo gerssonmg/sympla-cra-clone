@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, TableHead } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,77 +10,38 @@ import DialogContent from '@mui/material/DialogContent';
 
 import TableRow from '@mui/material/TableRow';
 import FormEventComponent from '../components/FormEvent';
+import useEvents from '../service/realtime.database';
 
 const visibleRows = [
   {
     id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
+    title: 'Show Sertanejo',
+    date: '12/12/2024',
+    price: 'R$197,00',
+    capacity: 240,
+    sold: 4,
   },
   {
     id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
-  },
-  {
-    id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
+    title: 'Conferencia da OAB do Norte de Minas',
+    date: '12/11/2024',
+    price: 'R$97,00',
+    capacity: 130,
+    sold: 42,
   },
 ];
 
 const MyEvents = () => {
   const handleClick = (event, id) => {};
   const [showForm, setShowForm] = useState(false);
+
+  const events = useEvents();
+  useEffect(() => {
+    console.log('events');
+    console.log(events);
+  }, [events]);
+
+  const combinedRows = [...visibleRows, ...events];
 
   return (
     <Box mt={10}>
@@ -119,7 +80,7 @@ const MyEvents = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {visibleRows.map((row, index) => {
+            {combinedRows.map((row, index) => {
               const isItemSelected = true;
               const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -143,12 +104,12 @@ const MyEvents = () => {
                     scope="row"
                     padding="none"
                   >
-                    {row.name}
+                    {row.title}
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+                  <TableCell align="right">{row.date}</TableCell>
+                  <TableCell align="right">{row.price}</TableCell>
+                  <TableCell align="right">{row.capacity}</TableCell>
+                  <TableCell align="right">{row.sold}</TableCell>
                 </TableRow>
               );
             })}

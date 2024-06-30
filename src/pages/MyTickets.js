@@ -16,21 +16,18 @@ import { getDatabase, ref, set } from 'firebase/database';
 const visibleRows = [
   {
     id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
+    title: 'Show Sertanejo',
+    date: '12/12/2024',
+    document: '111.999.111-00',
   },
   {
     id: 1,
-    name: 'Show Sertanejo',
-    calories: '12/12/2024',
-    fat: 'R$197,00',
-    carbs: 240,
-    protein: 4,
+    title: 'Conferencia da OAB do Norte de Minas',
+    date: '12/11/2024',
+    document: '012.345.678-90',
   },
 ];
+
 const MyTickets = () => {
   function writeUserData(
     userId = '123',
@@ -60,7 +57,8 @@ const MyTickets = () => {
           Comprar Ingresso
         </Button>
       </Link>
-
+      <br />
+      Clique no ingresso para mais informações do Evento
       <TableContainer>
         <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
           <TableHead>
@@ -73,12 +71,10 @@ const MyTickets = () => {
               <TableCell align="center" padding="checkbox" />
 
               <TableCell component="th" scope="row" padding="none">
-                Nome
+                Nome no Ingresso
               </TableCell>
-              <TableCell align="right">Data</TableCell>
-              <TableCell align="right">Valor</TableCell>
-              <TableCell align="right">Capacidade</TableCell>
-              <TableCell align="right">Vendidos</TableCell>
+              <TableCell align="left">Data</TableCell>
+              <TableCell align="left">Documento</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -112,19 +108,16 @@ const MyTickets = () => {
                     scope="row"
                     padding="none"
                   >
-                    {row.name}
+                    {row.title}
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell align="left">{row.document}</TableCell>
                 </TableRow>
               );
             })}
           </TableBody>
         </Table>
       </TableContainer>
-
       {showDialog && <DialogResponsiveDialog setShowDialog={setShowDialog} />}
     </Box>
   );

@@ -5,12 +5,21 @@ import UploadImage from './UploadImage';
 
 const FormEventComponent = ({ handleClose }) => {
   const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [capacity, setCapacity] = useState('');
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
   const handleSubmit = () => {
-    if (title === '' || date === '' || location === '' || imageUrl === '') {
+    if (
+      title === '' ||
+      date === '' ||
+      location === '' ||
+      imageUrl === '' ||
+      price === '' ||
+      capacity === ''
+    ) {
       alert('Preencha todos os campos!');
       return;
     }
@@ -23,6 +32,8 @@ const FormEventComponent = ({ handleClose }) => {
       date,
       location,
       image: imageUrl,
+      price,
+      capacity,
     })
       .then(() => {
         alert('Evento cadastrado com sucesso!');
@@ -41,6 +52,22 @@ const FormEventComponent = ({ handleClose }) => {
           label="Título"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          fullWidth
+          sx={{ mb: 2 }}
+          required
+        />
+        <TextField
+          label="Valor"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          fullWidth
+          sx={{ mb: 2 }}
+          required
+        />
+        <TextField
+          label="Capacidade Maxima"
+          value={capacity}
+          onChange={(e) => setCapacity(e.target.value)}
           fullWidth
           sx={{ mb: 2 }}
           required
