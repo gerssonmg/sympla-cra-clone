@@ -12,7 +12,7 @@ export default function CardEventComponent({ data }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(URLS.EVENT); // Substitua pelo caminho da sua página de detalhes do evento
+    navigate(`${URLS.EVENT}/${data.id}`); // Substitua pelo caminho da sua página de detalhes do evento
   };
 
   return (

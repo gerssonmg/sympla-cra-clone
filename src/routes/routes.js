@@ -18,7 +18,7 @@ const RoutesApp = () => {
       <Navbar />
       <Routes>
         <Route path={URLS.STORE} element={<Store />} />
-        <Route path={URLS.EVENT} element={<Description />} />
+        <Route path={`${URLS.EVENT}/:id`} element={<Description />} />
         <Route path={URLS.MY_TICKETS} element={<MyTickets />} />
         <Route path={URLS.MY_EVENTS} element={<MyEvents />} />
       </Routes>

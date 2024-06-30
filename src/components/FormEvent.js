@@ -5,6 +5,7 @@ import UploadImage from './UploadImage';
 
 const FormEventComponent = ({ handleClose }) => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [capacity, setCapacity] = useState('');
   const [date, setDate] = useState('');
@@ -18,6 +19,7 @@ const FormEventComponent = ({ handleClose }) => {
       address === '' ||
       imageUrl === '' ||
       price === '' ||
+      description === '' ||
       capacity === ''
     ) {
       alert('Preencha todos os campos!');
@@ -34,6 +36,7 @@ const FormEventComponent = ({ handleClose }) => {
       image: imageUrl,
       price,
       capacity,
+      description,
     })
       .then(() => {
         alert('Evento cadastrado com sucesso!');
@@ -55,6 +58,17 @@ const FormEventComponent = ({ handleClose }) => {
           fullWidth
           sx={{ mb: 2 }}
           required
+        />
+        <TextField
+          value={description}
+          required
+          onChange={(e) => setDescription(e.target.value)}
+          id="filled-multiline-static"
+          label="Descrição"
+          multiline
+          fullWidth
+          rows={4}
+          sx={{ mb: 2 }}
         />
         <TextField
           label="Valor"

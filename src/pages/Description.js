@@ -1,25 +1,71 @@
+import { useEffect, useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { getDatabase, get, ref, child, onValue } from 'firebase/database';
 
 const Description = () => {
+  const { id } = useParams();
+
+  const [event, setEvent] = useState(null);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      const dbRef = ref(getDatabase());
+      try {
+        const snapshot = await get(child(dbRef, `events/${id}`));
+        if (snapshot.exists()) {
+          setEvent(snapshot.val());
+          console.log(snapshot.val());
+        } else {
+          console.log('No data available');
+        }
+      } catch (error) {
+        console.error('Error fetching event:', error);
+      }
+    };
+
+    fetchEvent();
+  }, [id]);
+
   return (
     <Box mt={4} display="flex" flexDirection="column" alignItems="center">
-      <img src="/imagens/show.jpg" alt="" />
+      <Box maxHeight="50%">
+        <img
+          src={event?.image || '/imagens/show.jpg'}
+          alt={event?.title}
+          style={{
+            maxWidth: '100%',
+            maxHeight: '340px',
+            width: 'auto',
+            height: 'auto',
+          }}
+        />{' '}
+      </Box>
+      {/* <img src="/imagens/show.jpg" alt="" /> */}
 
       <Box bgcolor="#424242" p={4} borderRadius={8}>
         <Box display="flex" alignItems="center" mb={2}>
           <Button variant="contained" color="success">
             Comprar Ingresso
           </Button>
-          <Typography sx={{ ml: 2 }}>R$197,90</Typography>
+          <Typography sx={{ ml: 2 }}>
+            {event?.price}
+            {/* R$197,90 */}
+          </Typography>
         </Box>
 
         <Typography sx={{ mb: 4 }}>
-          JOTA QUEST | DIAS MELHORES RS: MÚSICA E SOLIDARIEDADE - 14/07/24
+          {event?.title}
+          {/* JOTA QUEST | DIAS MELHORES RS: MÚSICA E SOLIDARIEDADE - 14/07/24 */}
         </Typography>
-        <Typography>Domingo às 20h00 14 de Julho</Typography>
+        <Typography>
+          {event?.date}
+          {/* Domingo às 20h00 14 de Julho */}
+        </Typography>
         <Typography sx={{ mb: 2 }}>
-          Araújo Vianna - Parque Farroupilha, 685, Porto Alegre - Rio Grande do
-          Sul
+          {event?.address}
+          {/* Araújo Vianna - Parque Farroupilha, 685, Porto Alegre - Rio Grande do
+          Sul */}
         </Typography>
         <hr />
         <Typography sx={{ ml: 2, mt: 4, mb: 2 }}>
