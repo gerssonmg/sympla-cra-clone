@@ -22,7 +22,7 @@ const visibleRows = [
     sold: 4,
   },
   {
-    id: 1,
+    id: 2,
     title: 'Conferencia da OAB do Norte de Minas',
     date: '12/11/2024',
     price: 'R$97,00',
@@ -41,7 +41,7 @@ const MyEvents = () => {
     console.log(events);
   }, [events]);
 
-  const combinedRows = [...visibleRows, ...events];
+  const combinedRows = [...events, ...visibleRows];
 
   return (
     <Box mt={10}>

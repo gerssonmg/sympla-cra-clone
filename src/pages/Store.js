@@ -58,7 +58,7 @@ export const arrayEvents = [
 
 const Store = () => {
   const events = useEvents();
-  const combinedRows = [...arrayEvents, ...events];
+  const combinedRows = [...events, ...arrayEvents];
 
   return (
     <Grid container>
