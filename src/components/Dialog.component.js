@@ -37,21 +37,22 @@ export default function DialogResponsiveDialog({ setShowDialog }) {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
+          Informações do evento{' '}
         </DialogTitle>
         <DialogContent>
           <CardEventComponent />
-          <DialogContentText>
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+          <DialogContentText sx={{ mt: 2 }}>
+            Atenção na Data e Horario do evento. Atenção para os dados da pessoa
+            que vai usar o ingresso, pode ser requisitado apresentar o
+            documento.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
-            Disagree
+            Ok
           </Button>
           <Button onClick={handleClose} autoFocus>
-            Agree
+            Entendi
           </Button>
         </DialogActions>
       </Dialog>

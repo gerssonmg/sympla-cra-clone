@@ -3,6 +3,21 @@ import CardEventComponent from '../components/CardEvent.component';
 import CardCityComponent from '../components/CardCity.component';
 import CardBannerComponent from '../components/CardBanner.component';
 
+const arrayCities = [
+  '/imagens/sp-city.png',
+  '/imagens/bh-city.png',
+  '/imagens/df-city.png',
+  '/imagens/rj-city.png',
+];
+
+const arrayEvents = [
+  {
+    date: '',
+    title: '',
+    address: '',
+  },
+];
+
 const Store = () => {
   return (
     <Grid container>
@@ -28,8 +43,8 @@ const Store = () => {
         </Box>
 
         <Grid container spacing={3}>
-          {[0, 1, 1, 1].map((item, index) => (
-            <CardCityComponent />
+          {arrayCities.map((item, index) => (
+            <CardCityComponent imgURL={item} />
           ))}
         </Grid>
       </Grid>

@@ -4,6 +4,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
+import Switch from '@mui/material/Switch';
 
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
@@ -97,7 +98,7 @@ const MyEvents = () => {
               tabIndex={-1}
               sx={{ cursor: 'pointer' }}
             >
-              <TableCell align="center" padding="checkbox" />
+              <TableCell align="left">Ativo</TableCell>
 
               <TableCell component="th" scope="row" padding="none">
                 Nome
@@ -124,14 +125,8 @@ const MyEvents = () => {
                   selected={isItemSelected}
                   sx={{ cursor: 'pointer' }}
                 >
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      color="primary"
-                      checked={isItemSelected}
-                      inputProps={{
-                        'aria-labelledby': labelId,
-                      }}
-                    />
+                  <TableCell padding="checkbox" align="center">
+                    <Switch size="small" defaultChecked />
                   </TableCell>
                   <TableCell
                     component="th"

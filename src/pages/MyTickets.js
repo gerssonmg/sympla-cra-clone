@@ -12,6 +12,7 @@ import { URLS } from '../routes/routes';
 import DialogResponsiveDialog from '../components/Dialog.component';
 
 import { getDatabase, ref, set } from 'firebase/database';
+// import { getDatabase } from 'firebase/database';
 
 const visibleRows = [
   {
@@ -32,7 +33,14 @@ const visibleRows = [
   },
 ];
 const MyTickets = () => {
-  function writeUserData(userId, name, email, imageUrl) {
+  const database = getDatabase();
+
+  function writeUserData(
+    userId = '123',
+    name = 'Gerson',
+    email = 'g@gmail.com',
+    imageUrl = 'http://'
+  ) {
     const db = getDatabase();
     set(ref(db, 'users/' + userId), {
       username: name,
@@ -45,6 +53,7 @@ const MyTickets = () => {
 
   const handleClick = (event, id) => {
     setShowDialog(true);
+    writeUserData();
   };
 
   return (

@@ -7,7 +7,7 @@ import { Box, Container, Link, Typography } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
-    // mode: 'dark',
+    mode: 'dark',
     // mode: 'light',
   },
 });
