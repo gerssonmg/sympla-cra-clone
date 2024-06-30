@@ -22,7 +22,7 @@ export default function CardEventComponent({ data }) {
           <CardMedia
             component="img"
             height="140"
-            image={data?.imgUrl}
+            image={data?.image}
             alt="green iguana"
           />
           <CardContent>

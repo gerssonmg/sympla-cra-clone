@@ -8,14 +8,14 @@ const FormEventComponent = ({ handleClose }) => {
   const [price, setPrice] = useState('');
   const [capacity, setCapacity] = useState('');
   const [date, setDate] = useState('');
-  const [location, setLocation] = useState('');
+  const [address, setAddress] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
   const handleSubmit = () => {
     if (
       title === '' ||
       date === '' ||
-      location === '' ||
+      address === '' ||
       imageUrl === '' ||
       price === '' ||
       capacity === ''
@@ -30,7 +30,7 @@ const FormEventComponent = ({ handleClose }) => {
     set(eventRef, {
       title,
       date,
-      location,
+      address,
       image: imageUrl,
       price,
       capacity,
@@ -86,8 +86,8 @@ const FormEventComponent = ({ handleClose }) => {
         />
         <TextField
           label="Localização"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
           fullWidth
           sx={{ mb: 2 }}
           required

@@ -2,9 +2,10 @@ import { Box, Grid, Typography } from '@mui/material';
 import CardEventComponent from '../components/CardEvent.component';
 import CardCityComponent from '../components/CardCity.component';
 import CardBannerComponent from '../components/CardBanner.component';
+import useEvents from '../service/realtime.database';
 
 const arrayCities = [
-  '/imagens/sp-city.png',
+  '/imagens/sp-4k.jpg',
   '/imagens/bh-city.png',
   '/imagens/df-city.png',
   '/imagens/rj-city.png',
@@ -15,47 +16,50 @@ export const arrayEvents = [
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show.jpg',
+    image: '/imagens/show.jpg',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show01.jpg',
+    image: '/imagens/show01.jpg',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show2.jpeg',
+    image: '/imagens/show2.jpeg',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show03.jpg',
+    image: '/imagens/show03.jpg',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show04.png',
+    image: '/imagens/show04.png',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show05.jpg',
+    image: '/imagens/show05.jpg',
   },
   {
     date: 'DOM, 04 AGO - 19:00',
     title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
     address: 'Araújo Vianna - Porto Alegre, RS',
-    imgUrl: '/imagens/show06.png',
+    image: '/imagens/show06.png',
   },
 ];
 
 const Store = () => {
+  const events = useEvents();
+  const combinedRows = [...arrayEvents, ...events];
+
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -69,7 +73,7 @@ const Store = () => {
           <Typography>Clique para mais detalhes</Typography>
         </Box>
         <Grid container spacing={3}>
-          {arrayEvents.map((item, index) => (
+          {combinedRows.map((item, index) => (
             <CardEventComponent data={item} />
           ))}
         </Grid>
