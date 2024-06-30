@@ -14,7 +14,7 @@ export default function CardBannerComponent() {
         <CardMedia
           component="img"
           sx={{ width: '100%' }}
-          image="/imagens/show.jpg"
+          image="/imagens/show07.jpg"
           alt="Live from space album cover"
         />
       </Hidden>
@@ -29,7 +29,7 @@ export default function CardBannerComponent() {
         <Box
           p={2}
           sx={{
-            display: { xl: 'none', xs: 'flex' },
+            // display: { xl: 'none', xs: 'flex' },
             flexDirection: 'column',
             width: '30%',
           }}

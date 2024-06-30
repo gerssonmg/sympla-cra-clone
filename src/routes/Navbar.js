@@ -24,7 +24,7 @@ const Navbar = () => {
         noWrap
         // sx={{ flex: 1 }}
       >
-        Sympla
+        SymplaClone
       </Typography>
       <Link to={URLS.STORE}>
         <Button variant="outlined" size="small">

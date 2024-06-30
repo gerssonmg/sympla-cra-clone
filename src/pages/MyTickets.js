@@ -12,7 +12,6 @@ import { URLS } from '../routes/routes';
 import DialogResponsiveDialog from '../components/Dialog.component';
 
 import { getDatabase, ref, set } from 'firebase/database';
-// import { getDatabase } from 'firebase/database';
 
 const visibleRows = [
   {
@@ -33,8 +32,6 @@ const visibleRows = [
   },
 ];
 const MyTickets = () => {
-  const database = getDatabase();
-
   function writeUserData(
     userId = '123',
     name = 'Gerson',

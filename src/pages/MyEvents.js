@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, TableHead } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import Switch from '@mui/material/Switch';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 
 import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
+import FormEventComponent from '../components/FormEvent';
 
 const visibleRows = [
   {
@@ -78,19 +80,26 @@ const visibleRows = [
 
 const MyEvents = () => {
   const handleClick = (event, id) => {};
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <Box mt={10}>
-      <Button sx={{ mb: 4 }} variant="contained">
+      <Button
+        sx={{ mb: 4 }}
+        variant="contained"
+        onClick={() => setShowForm(true)}
+      >
         Criar Evento
       </Button>
 
+      <Dialog open={showForm} onClose={() => setShowForm(false)}>
+        <DialogContent>
+          <FormEventComponent handleClose={() => setShowForm(false)} />
+        </DialogContent>
+      </Dialog>
+
       <TableContainer>
-        <Table
-          sx={{ minWidth: 750 }}
-          aria-labelledby="tableTitle"
-          // size={dense ? 'small' : 'medium'}
-        >
+        <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
           <TableHead>
             <TableRow
               hover

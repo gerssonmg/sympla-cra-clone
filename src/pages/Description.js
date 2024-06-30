@@ -1,12 +1,9 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, Button, Typography } from '@mui/material';
 
 const Description = () => {
   return (
     <Box mt={4} display="flex" flexDirection="column" alignItems="center">
-      {/* <Box bgcolor="#1a3" > */}
       <img src="/imagens/show.jpg" alt="" />
-      {/* </Box> */}
 
       <Box bgcolor="#424242" p={4} borderRadius={8}>
         <Box display="flex" alignItems="center" mb={2}>
