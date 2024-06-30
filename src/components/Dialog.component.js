@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,11 +8,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import CardEventComponent from './CardEvent.component';
+import { arrayEvents } from '../pages/Store';
 
 export default function DialogResponsiveDialog({ setShowDialog }) {
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const data = arrayEvents[0];
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -23,13 +26,8 @@ export default function DialogResponsiveDialog({ setShowDialog }) {
     setShowDialog(false);
   };
 
-  //   return <CardEventComponent />;
-
   return (
     <React.Fragment>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open responsive dialog
-      </Button> */}
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -40,7 +38,7 @@ export default function DialogResponsiveDialog({ setShowDialog }) {
           Informações do evento{' '}
         </DialogTitle>
         <DialogContent>
-          <CardEventComponent />
+          <CardEventComponent data={data} />
           <DialogContentText sx={{ mt: 2 }}>
             Atenção na Data e Horario do evento. Atenção para os dados da pessoa
             que vai usar o ingresso, pode ser requisitado apresentar o

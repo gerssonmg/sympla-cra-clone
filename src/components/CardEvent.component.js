@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid } from '@mui/material';
 import { URLS } from '../routes/routes';
 
-export default function CardEventComponent() {
+export default function CardEventComponent({ data }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -22,18 +22,18 @@ export default function CardEventComponent() {
           <CardMedia
             component="img"
             height="140"
-            image="/imagens/show.jpg"
+            image={data?.imgUrl}
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="subtitle2">
-              DOM, 04 AGO - 19:00
+              {data?.date}
             </Typography>
             <Typography gutterBottom variant="subtitle1" component="div">
-              AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24
+              {data?.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Araújo Vianna - Porto Alegre, RS
+              {data?.address}
             </Typography>
           </CardContent>
         </CardActionArea>

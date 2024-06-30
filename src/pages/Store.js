@@ -10,11 +10,48 @@ const arrayCities = [
   '/imagens/rj-city.png',
 ];
 
-const arrayEvents = [
+export const arrayEvents = [
   {
-    date: '',
-    title: '',
-    address: '',
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show.jpg',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show01.jpg',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show2.jpeg',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show03.jpg',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show04.png',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show05.jpg',
+  },
+  {
+    date: 'DOM, 04 AGO - 19:00',
+    title: 'AFONSO PADILHA NINGUÉM SE IMPORTA - 11/08/24',
+    address: 'Araújo Vianna - Porto Alegre, RS',
+    imgUrl: '/imagens/show06.png',
   },
 ];
 
@@ -32,8 +69,8 @@ const Store = () => {
           <Typography>Clique para mais detalhes</Typography>
         </Box>
         <Grid container spacing={3}>
-          {[0, 1, 1, 1, 1, 1].map((item, index) => (
-            <CardEventComponent />
+          {arrayEvents.map((item, index) => (
+            <CardEventComponent data={item} />
           ))}
         </Grid>
       </Grid>
